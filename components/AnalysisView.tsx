@@ -51,17 +51,17 @@ export const AnalysisView: React.FC<AnalysisViewProps> = ({ result, onReset }) =
              <MarkdownText content={result.technicalAnalysis} />
           </Card>
 
-          {/* New: Fixed Code Section */}
+          {/* Fixed Code Section - Conditional Render */}
           {result.fixedCode && (
             <Card 
-              title="Recommended Code Fix" 
+              title="Fixed Code" 
               className="border-emerald-200 ring-4 ring-emerald-50/50"
               action={<FileCode className="w-4 h-4 text-emerald-600" />}
             >
               <div className="mb-3 text-sm text-slate-600">
-                The following code implements the suggested fixes.
+                Here is the corrected code with the identified issues resolved:
               </div>
-              <CodeBlock code={result.fixedCode} label="Fixed Source Code" />
+              <CodeBlock code={result.fixedCode} label="Fixed Source" />
             </Card>
           )}
 

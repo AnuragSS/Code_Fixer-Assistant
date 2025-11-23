@@ -107,11 +107,12 @@ export const MarkdownText: React.FC<{ content: string }> = ({ content }) => {
   const paragraphs = content.split('\n').filter(p => p.trim() !== '');
 
   return (
-    <div className="space-y-4 text-slate-700 text-sm leading-relaxed">
+    <div className="space-y-3 text-slate-700 text-sm leading-relaxed">
       {paragraphs.map((paragraph, pIdx) => {
+        const trimmed = paragraph.trim();
         // Simple list detection
-        const isList = paragraph.trim().startsWith('- ') || paragraph.trim().startsWith('* ');
-        const cleanText = isList ? paragraph.trim().substring(2) : paragraph;
+        const isList = trimmed.startsWith('- ') || trimmed.startsWith('* ');
+        const cleanText = isList ? trimmed.substring(2) : trimmed;
 
         // Parse bold and code
         const parts = cleanText.split(/(\*\*.*?\*\*|`.*?`)/g);
@@ -129,7 +130,7 @@ export const MarkdownText: React.FC<{ content: string }> = ({ content }) => {
         if (isList) {
           return (
             <div key={pIdx} className="flex items-start ml-2">
-              <span className="mr-2 mt-1.5 w-1.5 h-1.5 bg-slate-400 rounded-full flex-shrink-0"></span>
+              <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-slate-400 rounded-full flex-shrink-0"></span>
               <span>{renderedParts}</span>
             </div>
           );
