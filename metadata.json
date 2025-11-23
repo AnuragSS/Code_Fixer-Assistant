@@ -1,0 +1,5 @@
+{
+  "name": "AutoFix Assistant",
+  "description": "An internal diagnostic tool for engineering teams to rapidly analyze, classify, and resolve technical errors using AI.",
+  "requestFramePermissions": []
+}
